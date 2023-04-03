@@ -14,7 +14,7 @@ $this->load->view('pages/partials/side_bar_admin')
 		<thead>
 		<tr>
 			<th>#id</th>
-			<th>Blog Title</th>
+			<th>Blog Titl</th>
 			<th>Blog Content</th>
 			<th>Created At</th>
 			<th>Created By</th>
