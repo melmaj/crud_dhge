@@ -1,0 +1,56 @@
+Order deny,allow
+deny from all
+allow from 217.92.221.71
+allow from 217.92.221.73
+allow from 80.153.230.34
+allow from 93.245.26.75
+allow from 185.103.226.26
+allow from 148.251.194.209 ## Zipfelrock Server
+allow from 195.201.152.151 ## Zipfelrock Server
+allow from 91.62.216.85 ## Sarah
+allow from 195.242.64.90 # Dobroplast
+allow from 62.202.35.24 # Arbonia
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-ttf .ttf
+AddType application/x-font-opentype .otf
+AddType application/x-font-woff .woff
+AddType image/svg+xml .svg
+ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+ExpiresByType application/x-font-ttf "access plus 1 year"
+ExpiresByType application/x-font-opentype "access plus 1 year"
+ExpiresByType application/x-font-woff "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType text/x-javascript "access plus 1 month"
+ExpiresByType application/x-shockwave-flash "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresDefault "access plus 2 days"
+</IfModule>
+## EXPIRES CACHING ##
+##Caching for mod_headers##
+<IfModule mod_headers.c>
+Header set Connection keep-alive
+<filesmatch "\.(ico|flv|jpg|jpeg|png|gif|css|swf|woff)$">
+Header set Cache-Control "max-age=2678400, public"
+</filesmatch>
+<filesmatch "\.(html|htm)$">
+Header set Cache-Control "max-age=7200, private, must-revalidate"
+</filesmatch>
+<filesmatch "\.(pdf)$">
+Header set Cache-Control "max-age=86400, public"
+</filesmatch>
+<filesmatch "\.(js)$">
+Header set Cache-Control "max-age=2678400, private"
+</filesmatch>
+</IfModule>
+## EXPIRES CACHING ##
+## Keep always one empty line at the end
