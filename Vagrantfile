@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/bionic64"
 
-  config.vm.hostname = "chris.dhge.local"
+  config.vm.hostname = "localhost"
 
   config.vm.provision :shell, :path => "bin/bootstrap.sh"
   config.vm.network :forwarded_port, host: 8099, guest: 80
