@@ -5,7 +5,7 @@
  *
  * @property CI_DB_mysqli_driver $db
  */
-class Blog_Model extends MY_Model
+class Blog_model extends MY_Model
 {
 	const TABLE_BLOG_ENTRY = 'blog_entry';
 	const TABLE_COMMENT = 'comment';

@@ -56,14 +56,14 @@ class Admin extends MY_Controller
 	 */
 	public function authentify()
 	{
-		$s_email1 = $this->input->post(user_model::S_TABLE_FIELD_EMAIL, true);
-		$s_password = $this->input->post(user_model::S_TABLE_FIELD_PASSWORD, true);
+		$s_email1 = $this->input->post(User_model::S_TABLE_FIELD_EMAIL, true);
+		$s_password = $this->input->post(User_model::S_TABLE_FIELD_PASSWORD, true);
 
 		$a_user = $this->user_model->get_user_by_mail($s_email1);
 
-		if (password_verify($s_password, $a_user[user_model::S_TABLE_FIELD_PASSWORD])) {
-			if ($a_user[user_model::S_TABLE_FIELD_ADMIN] == 1) {
-				$this->session->set_userdata('i_user_id', $a_user[user_model::S_TABLE_FIELD_ID]);
+		if (password_verify($s_password, $a_user[User_model::S_TABLE_FIELD_PASSWORD])) {
+			if ($a_user[User_model::S_TABLE_FIELD_ADMIN] == 1) {
+				$this->session->set_userdata('i_user_id', $a_user[User_model::S_TABLE_FIELD_ID]);
 				redirect('admin/dashboard_blog');
 			} else {
 				redirect('admin/login?error_code=2');
@@ -83,10 +83,10 @@ class Admin extends MY_Controller
 		$a_view_data = $this->getViewData();
 		$this->blog_model->insert_blog_into_db(
 			array(
-				Blog_Model::S_TABLE_FIELD_TITLE_BLOCK => trim($this->input->post(Blog_Model::S_TABLE_FIELD_TITLE_COMMENT, true)),
-				Blog_Model::S_TABLE_FIELD_CONTENT_BLOCK => trim($this->input->post(Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
-				Blog_Model::S_TABLE_FIELD_AUTHOR_BLOCK => $a_view_data['a_current_user']['id'],
-				Blog_Model::S_TABLE_FIELD_DATE_BLOCK => $o_now->format('Y-m-d H:i:s'),
+				Blog_model::S_TABLE_FIELD_TITLE_BLOCK => trim($this->input->post(Blog_model::S_TABLE_FIELD_TITLE_COMMENT, true)),
+				Blog_model::S_TABLE_FIELD_CONTENT_BLOCK => trim($this->input->post(Blog_model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
+				Blog_model::S_TABLE_FIELD_AUTHOR_BLOCK => $a_view_data['a_current_user']['id'],
+				Blog_model::S_TABLE_FIELD_DATE_BLOCK => $o_now->format('Y-m-d H:i:s'),
 			)
 		);
 		redirect('admin/dashboard_blog');
@@ -98,8 +98,8 @@ class Admin extends MY_Controller
 	public function edit_blog(){
 
 		$this->blog_model->update_blog($this->input->post('edit_id', TRUE), array(
-			Blog_Model::S_TABLE_FIELD_TITLE_BLOCK => trim($this->input->post(Blog_Model::S_TABLE_FIELD_TITLE_COMMENT, true)),
-			Blog_Model::S_TABLE_FIELD_CONTENT_BLOCK => trim($this->input->post(Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
+			Blog_model::S_TABLE_FIELD_TITLE_BLOCK => trim($this->input->post(Blog_model::S_TABLE_FIELD_TITLE_COMMENT, true)),
+			Blog_model::S_TABLE_FIELD_CONTENT_BLOCK => trim($this->input->post(Blog_model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
 		));
 		redirect('/admin/dashboard_blog');
 	}
@@ -125,10 +125,10 @@ class Admin extends MY_Controller
 	 */
 	public function edit_user(){
 		$this->user_model->update_user($this->input->post('edit_id', TRUE), array(
-			User_Model::S_TABLE_FIELD_FIRSTNAME => trim($this->input->post(User_Model::S_TABLE_FIELD_FIRSTNAME, true)),
-			User_Model::S_TABLE_FIELD_NAME => trim($this->input->post(User_Model::S_TABLE_FIELD_NAME, true)),
-			User_Model::S_TABLE_FIELD_EMAIL => trim($this->input->post(User_Model::S_TABLE_FIELD_EMAIL, true)),
-			User_Model::S_TABLE_FIELD_ADMIN => trim($this->input->post(User_Model::S_TABLE_FIELD_ADMIN, true)),
+			User_model::S_TABLE_FIELD_FIRSTNAME => trim($this->input->post(User_model::S_TABLE_FIELD_FIRSTNAME, true)),
+			User_model::S_TABLE_FIELD_NAME => trim($this->input->post(User_model::S_TABLE_FIELD_NAME, true)),
+			User_model::S_TABLE_FIELD_EMAIL => trim($this->input->post(User_model::S_TABLE_FIELD_EMAIL, true)),
+			User_model::S_TABLE_FIELD_ADMIN => trim($this->input->post(User_model::S_TABLE_FIELD_ADMIN, true)),
 			));
 		redirect('/admin/dashboard_user');
 	}
@@ -146,8 +146,8 @@ class Admin extends MY_Controller
 	 */
 	public function edit_comment_entry(){
 		$this->blog_model->update_comment($this->input->post('edit_id', TRUE), array(
-			Blog_Model::S_TABLE_FIELD_TITLE_COMMENT => trim($this->input->post(Blog_Model::S_TABLE_FIELD_TITLE_COMMENT, true)),
-			Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT => trim($this->input->post(Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
+			Blog_model::S_TABLE_FIELD_TITLE_COMMENT => trim($this->input->post(Blog_model::S_TABLE_FIELD_TITLE_COMMENT, true)),
+			Blog_model::S_TABLE_FIELD_CONTENT_COMMENT => trim($this->input->post(Blog_model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
 		));
 		redirect('/admin/dashboard_comment');
 	}

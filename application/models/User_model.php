@@ -5,7 +5,7 @@
  *
  * @property CI_DB_mysqli_driver $db
  */
-class User_Model extends MY_Model
+class User_model extends MY_Model
 {
 	const S_TABLE_FIELD_ID = 'id';
 	const S_TABLE_FIELD_FIRSTNAME = 'Firstname';

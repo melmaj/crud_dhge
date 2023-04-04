@@ -10,8 +10,8 @@
 
 		<?php
 		foreach ($a_blog_entries_top_10 as $a_blog_entry) {
-			?><a class="p-2 link-secondary" href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_Model::S_TABLE_FIELD_ID_BLOCK]) ?>">
-			<?php echo $a_blog_entry[Blog_Model::S_TABLE_FIELD_TITLE_BLOCK] ?></a>
+			?><a class="p-2 link-secondary" href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]) ?>">
+			<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?></a>
 		<?php }
 		if ($i_num_blog_entries > 10) { ?>
 				<a class="nav-link dropdown-toggle p-2" href="#"

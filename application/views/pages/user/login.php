@@ -21,7 +21,7 @@
 			<div>
 				<div class="form-group col-12 col-sm-6">
 					<br><label for="Feld1">Email</label><br><input size="100" type="email" class="form-control"
-																   name="<?php echo User_Model::S_TABLE_FIELD_EMAIL ?>"
+																   name="<?php echo User_model::S_TABLE_FIELD_EMAIL ?>"
 																   id="Feld1" placeholder="Ihre E-Mail">
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 			<div>
 				<div class="form-group col-12  col-sm-6">
 					<br><label>Passwort<br><input size="100" id="Feld2" type="password" class="form-control"
-															  name="<?php echo User_Model::S_TABLE_FIELD_PASSWORD ?>"
+															  name="<?php echo User_model::S_TABLE_FIELD_PASSWORD ?>"
 															  placeholder="Ihr Passwort"></label>
 				</div>
 			</div>

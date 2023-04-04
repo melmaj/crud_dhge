@@ -12,7 +12,7 @@
 
 			</div>
 			<div class="col-md-auto">
-				<label>Name<input name="<?php echo User_Model::S_TABLE_FIELD_NAME ?>" type="text" class="form-control" required></label>
+				<label>Name<input name="<?php echo User_model::S_TABLE_FIELD_NAME ?>" type="text" class="form-control" required></label>
 			</div>
 			<div class="col col-lg-4">
 
@@ -23,7 +23,7 @@
 
 			</div>
 			<div class="col-md-auto">
-				<label>Vorname<input name="<?php echo User_Model::S_TABLE_FIELD_FIRSTNAME ?>" type="text" class="form-control" required></label>
+				<label>Vorname<input name="<?php echo User_model::S_TABLE_FIELD_FIRSTNAME ?>" type="text" class="form-control" required></label>
 			</div>
 			<div class="col col-lg-4">
 
@@ -34,7 +34,7 @@
 
 			</div>
 			<div class="col-md-auto">
-				<label>E-Mail<input name="<?php echo User_Model::S_TABLE_FIELD_EMAIL ?>" type="email" class="form-control"></label>
+				<label>E-Mail<input name="<?php echo User_model::S_TABLE_FIELD_EMAIL ?>" type="email" class="form-control"></label>
 			</div>
 			<div class="col col-lg-4">
 
@@ -45,7 +45,7 @@
 
 			</div>
 			<div class="col-md-auto">
-				<label>Passwort<input name="<?php echo User_Model::S_TABLE_FIELD_PASSWORD ?>" type="password" class="form-control"></label>
+				<label>Passwort<input name="<?php echo User_model::S_TABLE_FIELD_PASSWORD ?>" type="password" class="form-control"></label>
 			</div>
 			<div class="col col-lg-4">
 
@@ -56,7 +56,7 @@
 
 			</div>
 			<div class="col-md-auto">
-				<label>Passwort wiederholen<input name="<?php echo User_Model::S_TABLE_FIELD_PASSWORD_RETYPE ?>" type="password" class="form-control"></label>
+				<label>Passwort wiederholen<input name="<?php echo User_model::S_TABLE_FIELD_PASSWORD_RETYPE ?>" type="password" class="form-control"></label>
 			</div>
 			<div class="col col-lg-4">
 

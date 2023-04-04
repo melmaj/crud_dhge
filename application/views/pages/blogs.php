@@ -9,11 +9,11 @@
 <main class="container">
 	<div class="col-md-12">
 		<article class="blog-post">
-			<h2 class="blog-post-title"><?php echo $a_current_blog[Blog_Model::S_TABLE_FIELD_TITLE_BLOCK]; ?></h2>
-			<p class="blog-post-meta">created at <?php echo $a_current_blog[Blog_Model::S_TABLE_FIELD_DATE_BLOCK]; ?>
-				by <?php echo $a_current_blog[User_Model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_current_blog[User_Model::S_TABLE_FIELD_NAME]; ?></p>
+			<h2 class="blog-post-title"><?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_TITLE_BLOCK]; ?></h2>
+			<p class="blog-post-meta">created at <?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_DATE_BLOCK]; ?>
+				by <?php echo $a_current_blog[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_current_blog[User_model::S_TABLE_FIELD_NAME]; ?></p>
 
-			<p><?php echo $a_current_blog[Blog_Model::S_TABLE_FIELD_CONTENT_BLOCK]; ?></p>
+			<p><?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK]; ?></p>
 			<hr>
 
 		</article>
@@ -32,14 +32,14 @@
 			?>
 		</p>
 		<hr>
-		<?php if (isset($a_current_user[user_model::S_TABLE_FIELD_ID])) { ?>
+		<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_ID])) { ?>
 			<form method="post" action="<?php echo('/blog/add_comment') ?>">
 				<input type="hidden" name="blog_entry_id" value="<?php echo $a_current_blog['id'] ?>">
 				<div class="col-md-12">
 					<div>
-						<label>Titel<input name="<?php echo Blog_Model::S_TABLE_FIELD_TITLE_COMMENT ?>" type="text" class="form-control" required></label>
+						<label>Titel<input name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_COMMENT ?>" type="text" class="form-control" required></label>
 					</div>
-					<label><textarea class="form-control" name="<?php echo Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT ?>"></textarea></label>
+					<label><textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"></textarea></label>
 					<button name="send" type="submit" class="btn btn-mat btn-info">Kommentar hinzufügen</button>
 				</div>
 			</form>

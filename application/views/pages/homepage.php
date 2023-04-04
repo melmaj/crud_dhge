@@ -33,13 +33,13 @@
 			foreach ($a_blog_entries as $a_blog_entry) { ?>
 
 			<article class="blog-post">
-				<h2 class="blog-post-title"><?php echo $a_blog_entry[Blog_Model::S_TABLE_FIELD_TITLE_BLOCK] ?></h2>
-				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_Model::S_TABLE_FIELD_DATE_BLOCK]?> by <a href="#">Mark</a></p>
+				<h2 class="blog-post-title"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?></h2>
+				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK]?> by <a href="#">Mark</a></p>
 
-				<p><?php echo substr($a_blog_entry[Blog_Model::S_TABLE_FIELD_CONTENT_BLOCK], 0, 255) ?></p>
+				<p><?php echo substr($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK], 0, 255) ?></p>
 				<hr>
-				<?php if (strlen($a_blog_entry[Blog_Model::S_TABLE_FIELD_CONTENT_BLOCK])) { ?>
-					<p><a href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_Model::S_TABLE_FIELD_ID_BLOCK]) ?>">Continue reading...</a></p>
+				<?php if (strlen($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK])) { ?>
+					<p><a href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]) ?>">Continue reading...</a></p>
 						<?php	} ?>
 			</article>
 			<?php } ?>

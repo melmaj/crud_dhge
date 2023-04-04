@@ -54,10 +54,10 @@ class Blog extends MY_Controller
 
 		$this->blog_model->insert_comment_into_db(
 			array(
-				Blog_Model::S_TABLE_FIELD_TITLE_COMMENT => trim($this->input->post(Blog_Model::S_TABLE_FIELD_TITLE_COMMENT, true)),
-				Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT => trim($this->input->post(Blog_Model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
-				Blog_Model::S_TABLE_FIELD_AUTHOR_COMMENT => $a_view_data['a_current_user']['id'],
-				Blog_Model::S_TABLE_FIELD_DATE_COMMENT => $o_now->format('Y-m-d H:i:s'),
+				Blog_model::S_TABLE_FIELD_TITLE_COMMENT => trim($this->input->post(Blog_model::S_TABLE_FIELD_TITLE_COMMENT, true)),
+				Blog_model::S_TABLE_FIELD_CONTENT_COMMENT => trim($this->input->post(Blog_model::S_TABLE_FIELD_CONTENT_COMMENT, true)),
+				Blog_model::S_TABLE_FIELD_AUTHOR_COMMENT => $a_view_data['a_current_user']['id'],
+				Blog_model::S_TABLE_FIELD_DATE_COMMENT => $o_now->format('Y-m-d H:i:s'),
 				'page_id' => $this->input->post('blog_entry_id'),
 			)
 		);

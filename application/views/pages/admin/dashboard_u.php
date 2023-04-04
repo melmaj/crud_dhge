@@ -25,15 +25,15 @@ $this->load->view('pages/partials/side_bar_admin')
 		foreach ($a_all_users as $a_user) {
 			$count++; ?>
 			<tr>
-				<td><?php echo $a_user[User_Model::S_TABLE_FIELD_ID]  ?></td>
-				<td><?php echo $a_user[User_Model::S_TABLE_FIELD_FIRSTNAME] ?></td>
-				<td><?php echo $a_user[User_Model::S_TABLE_FIELD_NAME] ?></td>
-				<td><?php echo $a_user[User_Model::S_TABLE_FIELD_EMAIL] ?></td>
-				<td><?php echo $a_user[User_Model::S_TABLE_FIELD_ADMIN] ?></td>
+				<td><?php echo $a_user[User_model::S_TABLE_FIELD_ID]  ?></td>
+				<td><?php echo $a_user[User_model::S_TABLE_FIELD_FIRSTNAME] ?></td>
+				<td><?php echo $a_user[User_model::S_TABLE_FIELD_NAME] ?></td>
+				<td><?php echo $a_user[User_model::S_TABLE_FIELD_EMAIL] ?></td>
+				<td><?php echo $a_user[User_model::S_TABLE_FIELD_ADMIN] ?></td>
 				<td>
-					<a href="#" class="btn btn-info btn-sm update-record"  data-toggle="modal" data-target="#UpdateModal-<?php echo $a_user[User_Model::S_TABLE_FIELD_ID]; ?>">Edit</a>
+					<a href="#" class="btn btn-info btn-sm update-record"  data-toggle="modal" data-target="#UpdateModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">Edit</a>
 					<form action="<?php echo site_url('admin/edit_user');?>" method="post">
-						<div class="modal fade" id="UpdateModal-<?php echo $a_user[User_Model::S_TABLE_FIELD_ID]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade" id="UpdateModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -47,31 +47,31 @@ $this->load->view('pages/partials/side_bar_admin')
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Vorname</label>
 											<div class="col-sm-10">
-												<input type="text" name="<?php echo User_Model::S_TABLE_FIELD_FIRSTNAME ?>" class="form-control" value="<?php echo $a_user[User_Model::S_TABLE_FIELD_FIRSTNAME] ?>" required>
+												<input type="text" name="<?php echo User_model::S_TABLE_FIELD_FIRSTNAME ?>" class="form-control" value="<?php echo $a_user[User_model::S_TABLE_FIELD_FIRSTNAME] ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Name</label>
 											<div class="col-sm-10">
-												<input type="text" name="<?php echo User_Model::S_TABLE_FIELD_NAME ?>" class="form-control" value="<?php echo $a_user[User_Model::S_TABLE_FIELD_NAME] ?>" required>
+												<input type="text" name="<?php echo User_model::S_TABLE_FIELD_NAME ?>" class="form-control" value="<?php echo $a_user[User_model::S_TABLE_FIELD_NAME] ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">E-Mail</label>
 											<div class="col-sm-10">
-												<input type="text" name="<?php echo User_Model::S_TABLE_FIELD_EMAIL ?>" class="form-control" value="<?php echo $a_user[User_Model::S_TABLE_FIELD_EMAIL] ?>" required>
+												<input type="text" name="<?php echo User_model::S_TABLE_FIELD_EMAIL ?>" class="form-control" value="<?php echo $a_user[User_model::S_TABLE_FIELD_EMAIL] ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Admin-Status</label>
 											<div class="col-sm-10">
-												<input type="text" name="<?php echo User_Model::S_TABLE_FIELD_ADMIN ?>" class="form-control" value="<?php echo $a_user[User_Model::S_TABLE_FIELD_ADMIN] ?>" required>
+												<input type="text" name="<?php echo User_model::S_TABLE_FIELD_ADMIN ?>" class="form-control" value="<?php echo $a_user[User_model::S_TABLE_FIELD_ADMIN] ?>" required>
 											</div>
 										</div>
 
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="edit_id" value="<?php echo $a_user[User_Model::S_TABLE_FIELD_ID]; ?>"
+										<input type="hidden" name="edit_id" value="<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>"
 										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
 										<button type="submit" class="btn btn-success btn-sm">Update</button>
 									</div>
@@ -79,9 +79,9 @@ $this->load->view('pages/partials/side_bar_admin')
 							</div>
 						</div>
 					</form>
-					<a href="#" class="btn btn-danger btn-sm delete-record"  data-toggle="modal" data-target="#DeleteModal-<?php echo $a_user[User_Model::S_TABLE_FIELD_ID]; ?>">Delete</a>
+					<a href="#" class="btn btn-danger btn-sm delete-record"  data-toggle="modal" data-target="#DeleteModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">Delete</a>
 					<form action="<?php echo site_url('admin/delete_user');?>" method="post">
-						<div class="modal fade" id="DeleteModal-<?php echo $a_user[User_Model::S_TABLE_FIELD_ID]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade" id="DeleteModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -96,7 +96,7 @@ $this->load->view('pages/partials/side_bar_admin')
 
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="delete_id" value="<?php echo $a_user[User_Model::S_TABLE_FIELD_ID]; ?>">
+										<input type="hidden" name="delete_id" value="<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">
 										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
 										<button type="submit" class="btn btn-success btn-sm">Yes</button>
 									</div>

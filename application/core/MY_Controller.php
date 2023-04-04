@@ -4,8 +4,8 @@
  *
  * @property CI_Loader $load
  * @property CI_Input $input
- * @property User_Model $user_model
- * @property Blog_Model $blog_model
+ * @property User_model $user_model
+ * @property Blog_model $blog_model
  * @property CI_URI $uri
  * @property CI_Session $session
  * @property CI_User_agent $agent
@@ -48,7 +48,7 @@ class MY_Controller extends CI_Controller
 		$this->load->database();
 		$this->setViewData('error_code', $this->input->get('error_code'));
 		if ($this->session->userdata('i_user_id')) {
-			$this->setViewData('a_current_user', $this->user_model->get_row_array_by_id($this->session->userdata('i_user_id'), User_Model::S_TABLE_NAME));
+			$this->setViewData('a_current_user', $this->user_model->get_row_array_by_id($this->session->userdata('i_user_id'), User_model::S_TABLE_NAME));
 		}
 		$this->load->view('templates/header', $this->getViewData());
 	}
