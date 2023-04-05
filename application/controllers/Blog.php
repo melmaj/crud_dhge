@@ -26,7 +26,8 @@ class Blog extends MY_Controller
 	public function page($i_id)
 	{
 		$a_blog_entry = $this->blog_model->get_blog_by_id($i_id);
-		$this->setViewData('a_current_blog', $a_blog_entry);
+        $this->setViewData('a_current_user', $this->user_model->get_row_array_by_id($this->session->userdata('i_user_id'), User_model::S_TABLE_NAME));
+        $this->setViewData('a_current_blog', $a_blog_entry);
 		$this->setViewData('a_all_comments', $this->blog_model->get_all_comments_by_id($a_blog_entry['id']));
 		$this->load->view('pages/blogs', $this->getViewData());
 	}

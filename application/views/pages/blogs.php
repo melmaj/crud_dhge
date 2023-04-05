@@ -2,6 +2,7 @@
 /**
  * @var array $a_current_blog
  * @var array $a_all_comments
+ * @var array $a_current_user
  */
 
 ?>
@@ -17,6 +18,22 @@
 			<hr>
 
 		</article>
+		<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_ID])) { ?>
+		<form id="time-tracking-form">
+			<div >
+				<input type="hidden" id="userId" value="<?php echo $a_current_user[User_model::S_TABLE_FIELD_ID]; ?>">
+				<input type="hidden" id="bookId" value="<?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
+
+			</div>
+			<button class="btn btn-lg btn-primary" id="submit-button" type="submit">Einstechen</button>
+		</form>
+		<form id="getter">
+			<button class="btn btn-lg btn-primary" id="get-button" type="submit">Ausstechen</button>
+		</form>
+		<p id="result" class="m-2 col-md-4 mx-auto"></p>
+		<?php }
+		?>
+
 
 		<label>Kommentare</label>
 		<p><?php //print_r($a_all_comments);
@@ -49,6 +66,66 @@
 </main>
 <br>
 <button type="button"><a href="<?php echo site_url('/blog/home') ?>">Zurück</a></button>
+<script>const form = document.querySelector('form');
+	const inputValueUser = document.getElementById('userId');
+	const inputValueBook = document.getElementById('bookId');
+	const resultText = document.getElementById('result');
+	const getter = document.getElementById('getter');
+
+
+	form.addEventListener('submit', (event) => {
+		event.preventDefault();
+
+		const UserToSend = inputValueUser.value;
+		const BookToSend = inputValueBook.value;
+		const apiUrl = 'https://sxge7l8yuj.execute-api.eu-central-1.amazonaws.com/prod';
+
+		fetch(apiUrl, {
+
+			method: 'POST',
+			body: JSON.stringify({'userId': UserToSend, 'bookId':BookToSend, 'buttonType': 'submit' })
+		})
+			.then(response => response.json())
+
+			.then(data => {
+				if (data.errorMessage) {
+					resultText.textContent = data.errorMessage;
+				} else {
+					let str = `${data.body}`;
+					resultText.textContent = str.replace("GMT+0000 (Coordinated Universal Time)", "");
+				}
+			})
+
+			.then(data => console.log(data))
+			.catch(error => console.error(error))
+	});
+
+	getter.addEventListener('submit', (event) => {
+		event.preventDefault();
+
+		const UserToSend = inputValueUser.value;
+		const BookToSend = inputValueBook.value;
+		const apiUrl = 'https://sxge7l8yuj.execute-api.eu-central-1.amazonaws.com/prod';
+
+		fetch(apiUrl, {
+
+			method: 'POST',
+			body: JSON.stringify({'userId': UserToSend, 'bookId':BookToSend, 'buttonType': 'get' })
+		})
+			.then(response => response.json())
+
+			.then(data => {
+				if (data.errorMessage) {
+					resultText.textContent = data.errorMessage;
+				} else {
+					let str = `${data.body}`;
+					resultText.textContent = str.replace("GMT+0000 (Coordinated Universal Time)", "");
+				}
+			})
+
+			.then(data => console.log(data))
+			.catch(error => console.error(error))
+	});	</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
