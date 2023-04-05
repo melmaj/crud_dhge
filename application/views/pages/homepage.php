@@ -14,7 +14,7 @@
 
 			</div>
 			<div class="col-4 text-center">
-				<h1>THE Blog Book</h1>
+				<h1>Der Buch Block</h1>
 			</div>
 			<div class="col-4 d-flex justify-content-end align-items-center">
 
