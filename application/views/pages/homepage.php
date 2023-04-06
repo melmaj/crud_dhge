@@ -1,8 +1,8 @@
 <?php
 /**
- * @var int $i_num_blog_entries
- * @var array $a_blog_entries
- * @var array $a_blog_entries_top_10
+ * @var int $i_num_book_entries
+ * @var array $a_book_entries
+ * @var array $a_book_entries_top_10
  */
 ?>
 <body>
@@ -14,7 +14,7 @@
 
 			</div>
 			<div class="col-4 text-center">
-				<h1>Der Buch Block</h1>
+				<h1>Der Buch BOOK</h1>
 			</div>
 			<div class="col-4 d-flex justify-content-end align-items-center">
 
@@ -30,16 +30,16 @@
 	<div class="row">
 		<div class="col-md-12">
 			<?php
-			foreach ($a_blog_entries as $a_blog_entry) { ?>
+			foreach ($a_book_entries as $a_book_entry) { ?>
 
-			<article class="blog-post">
-				<h2 class="blog-post-title"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?></h2>
-				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK]?> by <a href="#">Mark</a></p>
+			<article class="book-post">
+				<h2 class="book-post-title"><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_TITLE_BOOK] ?></h2>
+				<p class="book-post-meta"><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_DATE_BOOK]?> by <a href="#">Mark</a></p>
 
-				<p><?php echo substr($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK], 0, 255) ?></p>
+				<p><?php echo substr($a_book_entry[Book_model::S_TABLE_FIELD_CONTENT_BOOK], 0, 255) ?></p>
 				<hr>
-				<?php if (strlen($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK])) { ?>
-					<p><a href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]) ?>">Continue reading...</a></p>
+				<?php if (strlen($a_book_entry[Book_model::S_TABLE_FIELD_CONTENT_BOOK])) { ?>
+					<p><a href="<?php echo site_url('/book/page/'. $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]) ?>">Continue reading...</a></p>
 						<?php	} ?>
 			</article>
 			<?php } ?>

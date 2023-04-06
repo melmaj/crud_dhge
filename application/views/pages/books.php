@@ -1,6 +1,6 @@
 <?php
 /**
- * @var array $a_current_blog
+ * @var array $a_current_book
  * @var array $a_all_comments
  * @var array $a_current_user
  */
@@ -9,12 +9,12 @@
 <?php $this->load->view('pages/partials/side_bar') ?>
 <main class="container">
 	<div class="col-md-12">
-		<article class="blog-post">
-			<h2 class="blog-post-title"><?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_TITLE_BLOCK]; ?></h2>
-			<p class="blog-post-meta">created at <?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_DATE_BLOCK]; ?>
-				by <?php echo $a_current_blog[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_current_blog[User_model::S_TABLE_FIELD_NAME]; ?></p>
+		<article class="book-post">
+			<h2 class="book-post-title"><?php echo $a_current_book[Book_model::S_TABLE_FIELD_TITLE_BOOK]; ?></h2>
+			<p class="book-post-meta">created at <?php echo $a_current_book[Book_model::S_TABLE_FIELD_DATE_BOOK]; ?>
+				by <?php echo $a_current_book[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_current_book[User_model::S_TABLE_FIELD_NAME]; ?></p>
 
-			<p><?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK]; ?></p>
+			<p><?php echo $a_current_book[Book_model::S_TABLE_FIELD_CONTENT_BOOK]; ?></p>
 			<hr>
 
 		</article>
@@ -22,7 +22,7 @@
 		<form id="time-tracking-form">
 			<div >
 				<input type="hidden" id="userId" value="<?php echo $a_current_user[User_model::S_TABLE_FIELD_ID]; ?>">
-				<input type="hidden" id="bookId" value="<?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
+				<input type="hidden" id="bookId" value="<?php echo $a_current_book[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>">
 
 			</div>
 			<button class="btn btn-lg btn-primary" id="submit-button" type="submit">Einstechen</button>
@@ -50,13 +50,13 @@
 		</p>
 		<hr>
 		<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_ID])) { ?>
-			<form method="post" action="<?php echo('/blog/add_comment') ?>">
-				<input type="hidden" name="blog_entry_id" value="<?php echo $a_current_blog['id'] ?>">
+			<form method="post" action="<?php echo('/book/add_comment') ?>">
+				<input type="hidden" name="book_entry_id" value="<?php echo $a_current_book['id'] ?>">
 				<div class="col-md-12">
 					<div>
-						<label>Titel<input name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_COMMENT ?>" type="text" class="form-control" required></label>
+						<label>Titel<input name="<?php echo Book_model::S_TABLE_FIELD_TITLE_COMMENT ?>" type="text" class="form-control" required></label>
 					</div>
-					<label><textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"></textarea></label>
+					<label><textarea class="form-control" name="<?php echo Book_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"></textarea></label>
 					<button name="send" type="submit" class="btn btn-mat btn-info">Kommentar hinzufügen</button>
 				</div>
 			</form>
@@ -65,7 +65,7 @@
 	</div>
 </main>
 <br>
-<button type="button"><a href="<?php echo site_url('/blog/home') ?>">Zurück</a></button>
+<button type="button"><a href="<?php echo site_url('/book/home') ?>">Zurück</a></button>
 <script>const form = document.querySelector('form');
 	const inputValueUser = document.getElementById('userId');
 	const inputValueBook = document.getElementById('bookId');

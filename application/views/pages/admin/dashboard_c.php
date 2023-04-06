@@ -24,15 +24,15 @@ $this->load->view('pages/partials/side_bar_admin')
 			$count++;
 			?>
 			<tr>
-				<td><?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT] ?></td>
-				<td><?php echo $a_comment[Blog_model::S_TABLE_FIELD_TITLE_COMMENT] ?></td>
-				<td><?php echo $a_comment[Blog_model::S_TABLE_FIELD_CONTENT_COMMENT] ?></td>
-				<td><?php echo $a_comment[Blog_model::S_TABLE_FIELD_DATE_COMMENT] ?></td>
+				<td><?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT] ?></td>
+				<td><?php echo $a_comment[Book_model::S_TABLE_FIELD_TITLE_COMMENT] ?></td>
+				<td><?php echo $a_comment[Book_model::S_TABLE_FIELD_CONTENT_COMMENT] ?></td>
+				<td><?php echo $a_comment[Book_model::S_TABLE_FIELD_DATE_COMMENT] ?></td>
 				<td><?php echo $a_comment[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' .  $a_comment[User_model::S_TABLE_FIELD_NAME]?></td>
 				<td>
-					<a href="#" class="btn btn-info btn-sm update-record" data-toggle="modal" data-target="#UpdateModal-<?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT]; ?>">Edit</a>
+					<a href="#" class="btn btn-info btn-sm update-record" data-toggle="modal" data-target="#UpdateModal-<?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT]; ?>">Edit</a>
 					<form action="<?php echo site_url('admin/edit_comment_entry');?>" method="post">
-						<div class="modal fade" id="UpdateModal-<?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade" id="UpdateModal-<?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -46,19 +46,19 @@ $this->load->view('pages/partials/side_bar_admin')
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Title</label>
 											<div class="col-sm-10">
-												<input type="text" name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_COMMENT ?>" class="form-control" value="<?php echo $a_comment[Blog_model::S_TABLE_FIELD_TITLE_COMMENT] ?>" required>
+												<input type="text" name="<?php echo Book_model::S_TABLE_FIELD_TITLE_COMMENT ?>" class="form-control" value="<?php echo $a_comment[Book_model::S_TABLE_FIELD_TITLE_COMMENT] ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Content</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"><?php echo $a_comment[Blog_model::S_TABLE_FIELD_CONTENT_COMMENT] ?></textarea>
+												<textarea class="form-control" name="<?php echo Book_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"><?php echo $a_comment[Book_model::S_TABLE_FIELD_CONTENT_COMMENT] ?></textarea>
 											</div>
 										</div>
 
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="edit_id" value="<?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT]; ?>">
+										<input type="hidden" name="edit_id" value="<?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT]; ?>">
 										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
 										<button type="submit" class="btn btn-success btn-sm">Update</button>
 									</div>
@@ -66,9 +66,9 @@ $this->load->view('pages/partials/side_bar_admin')
 							</div>
 						</div>
 					</form>
-					<a href="#" class="btn btn-danger btn-sm delete-record" data-toggle="modal" data-target="#DeleteModal-<?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT]; ?>">Delete</a>
+					<a href="#" class="btn btn-danger btn-sm delete-record" data-toggle="modal" data-target="#DeleteModal-<?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT]; ?>">Delete</a>
 					<form action="<?php echo site_url('admin/delete_comment');?>" method="post">
-						<div class="modal fade" id="DeleteModal-<?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade" id="DeleteModal-<?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -83,7 +83,7 @@ $this->load->view('pages/partials/side_bar_admin')
 
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="delete_id" value="<?php echo $a_comment[Blog_model::S_TABLE_FIELD_ID_COMMENT]; ?>">
+										<input type="hidden" name="delete_id" value="<?php echo $a_comment[Book_model::S_TABLE_FIELD_ID_COMMENT]; ?>">
 										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
 										<button type="submit" class="btn btn-success btn-sm">Yes</button>
 									</div>

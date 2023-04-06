@@ -5,8 +5,8 @@
 
 		<a class="p-2 link-secondary" href="<?php echo site_url('/admin/dashboard_user') ?>">
 			User-Übersicht</a>
-		<a class="p-2 link-secondary" href="<?php echo site_url('/admin/dashboard_blog') ?>">
-			Blog-Übersicht</a>
+		<a class="p-2 link-secondary" href="<?php echo site_url('/admin/dashboard_book') ?>">
+			Book-Übersicht</a>
 		<a class="p-2 link-secondary" href="<?php echo site_url('/admin/dashboard_comment') ?>">
 			Comment-Übersicht</a>
 

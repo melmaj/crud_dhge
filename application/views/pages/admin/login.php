@@ -41,7 +41,7 @@
 			<div class="mt-4 text-center">
 				<button name="login" type="submit" class="btn btn-mat btn-info ">Anmelden</button>
 				<button name="back" class="btn btn-mat btn-success"><a
-						href="<?php echo site_url('blog/home') ?>">Zurück</a></button>
+						href="<?php echo site_url('book/home') ?>">Zurück</a></button>
 				<br>
 			</div>
 		</form>

@@ -1,21 +1,21 @@
 <?php
 /**
- * @var int $i_num_blog_entries
- * @var array $a_all_blog_entries
- * @var array $a_blog_entries_top_10
+ * @var int $i_num_book_entries
+ * @var array $a_all_book_entries
+ * @var array $a_book_entries_top_10
  * @var string $s_pagination
  */
 $this->load->view('pages/partials/side_bar_admin')
 ?>
 <body>
 <div class="container">
-	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Add New Blog</button><br/>
+	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Add New Book</button><br/>
 	<table class="table table-striped">
 		<thead>
 		<tr>
 			<th>#id</th>
-			<th>Blog Title</th>
-			<th>Blog Content</th>
+			<th>Book Title</th>
+			<th>Book Content</th>
 			<th>Created At</th>
 			<th>Created By</th>
 			<th>Action</th>
@@ -23,24 +23,24 @@ $this->load->view('pages/partials/side_bar_admin')
 		</thead>
 		<tbody>
 		<?php $count=0;
-		foreach ($a_all_blog_entries as $a_blog_entry) {
+		foreach ($a_all_book_entries as $a_book_entry) {
 			$count++;
 			?>
 			<tr>
-				<td><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK] ?></td>
-				<td><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?></td>
-				<td><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK] ?></td>
-				<td><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK] ?></td>
-				<td><?php echo $a_blog_entry[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' .  $a_blog_entry[User_model::S_TABLE_FIELD_NAME]?></td>
+				<td><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK] ?></td>
+				<td><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_TITLE_BOOK] ?></td>
+				<td><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_CONTENT_BOOK] ?></td>
+				<td><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_DATE_BOOK] ?></td>
+				<td><?php echo $a_book_entry[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' .  $a_book_entry[User_model::S_TABLE_FIELD_NAME]?></td>
 
 				<td>
-					<a href="#" class="btn btn-info btn-sm update-record" data-toggle="modal" data-target="#UpdateModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" >Edit</a>
-					<form action="<?php echo site_url('admin/edit_blog');?>" method="post">
-						<div class="modal fade" id="UpdateModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<a href="#" class="btn btn-info btn-sm update-record" data-toggle="modal" data-target="#UpdateModal-<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>" >Edit</a>
+					<form action="<?php echo site_url('admin/edit_book');?>" method="post">
+						<div class="modal fade" id="UpdateModal-<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Update Blog</h5>
+										<h5 class="modal-title" id="exampleModalLabel">Update Book</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
@@ -50,19 +50,19 @@ $this->load->view('pages/partials/side_bar_admin')
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Title</label>
 											<div class="col-sm-10">
-												<input type="text" name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_BLOCK ?>" class="form-control" value="<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?>" required>
+												<input type="text" name="<?php echo Book_model::S_TABLE_FIELD_TITLE_BOOK ?>" class="form-control" value="<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_TITLE_BOOK] ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Content</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_BLOCK ?>"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK] ?></textarea>
+												<textarea class="form-control" name="<?php echo Book_model::S_TABLE_FIELD_CONTENT_BOOK ?>"><?php echo $a_book_entry[Book_model::S_TABLE_FIELD_CONTENT_BOOK] ?></textarea>
 											</div>
 										</div>
 
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="edit_id" value="<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
+										<input type="hidden" name="edit_id" value="<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>">
 										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
 										<button type="submit" class="btn btn-success btn-sm">Update</button>
 									</div>
@@ -70,24 +70,24 @@ $this->load->view('pages/partials/side_bar_admin')
 							</div>
 						</div>
 					</form>
-					<a href="#" class="btn btn-danger btn-sm delete-record" data-toggle="modal" data-target="#DeleteModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" >Delete</a>
-					<form action="<?php echo site_url('admin/delete_blog_entry');?>" method="post">
-						<div class="modal fade" id="DeleteModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<a href="#" class="btn btn-danger btn-sm delete-record" data-toggle="modal" data-target="#DeleteModal-<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>" >Delete</a>
+					<form action="<?php echo site_url('admin/delete_book_entry');?>" method="post">
+						<div class="modal fade" id="DeleteModal-<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Delete Blog</h5>
+										<h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body">
 
-										<h4>Are you sure to delete this blog?</h4>
+										<h4>Are you sure to delete this book?</h4>
 
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="delete_id" value="<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
+										<input type="hidden" name="delete_id" value="<?php echo $a_book_entry[Book_model::S_TABLE_FIELD_ID_BOOK]; ?>">
 										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
 										<button type="submit" class="btn btn-success btn-sm">Yes</button>
 									</div>
@@ -108,13 +108,13 @@ $this->load->view('pages/partials/side_bar_admin')
 	</nav>
 </div>
 
-<!-- Add New Blog Modal -->
-<form action="<?php echo site_url('admin/new_blog_entry');?>" method="post">
+<!-- Add New Book Modal -->
+<form action="<?php echo site_url('admin/new_book_entry');?>" method="post">
 	<div class="modal fade" id="addNewModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Add New Blog</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Add New Book</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -124,13 +124,13 @@ $this->load->view('pages/partials/side_bar_admin')
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Title</label>
 						<div class="col-sm-10">
-							<input type="text" name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_BLOCK ?>" class="form-control" placeholder="Package Name" required>
+							<input type="text" name="<?php echo Book_model::S_TABLE_FIELD_TITLE_BOOK ?>" class="form-control" placeholder="Package Name" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Content</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_BLOCK ?>"></textarea>
+							<textarea class="form-control" name="<?php echo Book_model::S_TABLE_FIELD_CONTENT_BOOK ?>"></textarea>
 						</div>
 					</div>
 

@@ -37,14 +37,14 @@ class User extends MY_Controller
 				User_model::S_TABLE_FIELD_PASSWORD => password_hash($this->input->post(User_model::S_TABLE_FIELD_PASSWORD), PASSWORD_DEFAULT),
 			)
 		));
-			redirect('blog/home');
+			redirect('book/home');
 		}
 		catch (BadFunctionCallException $o_bad_exception){}
 		catch(Exception $o_exc){
 
 			redirect('user/register?error_code=4');
 		}
-		redirect('blog/home');
+		redirect('book/home');
 
 	}
 
@@ -60,7 +60,7 @@ class User extends MY_Controller
 
 		if (password_verify($s_password, $a_user[User_model::S_TABLE_FIELD_PASSWORD])) {
 			$this->session->set_userdata('i_user_id', $a_user[User_model::S_TABLE_FIELD_ID]);
-			redirect('blog/home');
+			redirect('book/home');
 		} else {
 			redirect('user/login?error_code=1');
 		}
@@ -72,6 +72,6 @@ class User extends MY_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('blog/home');
+		redirect('book/home');
 	}
 }

@@ -21,8 +21,8 @@ class User_model extends MY_Model
 	 * @param array $a_user
 	 * @return int
 	 */
-	public function insert_user_into_db(array $a_user)
-	{
+	public function insert_user_into_db(array $a_user): int
+    {
 		$this->db->insert(self::S_TABLE_NAME, $a_user);
 		return $this->db->insert_id();
 	}
@@ -49,8 +49,8 @@ class User_model extends MY_Model
 	 * @param $i_offset
 	 * @return array|array[]
 	 */
-	function get_all_users($i_offset)
-	{
+	function get_all_users($i_offset): array
+    {
 		$this->db->select(
 			array('id',
 				'Name',
@@ -73,8 +73,8 @@ class User_model extends MY_Model
 	/**
 	 * @return int
 	 */
-	function get_user_count()
-	{
+	function get_user_count(): int
+    {
 		$this->db->select(array(self::S_TABLE_FIELD_ID));
 		$this->db->from(self::S_TABLE_NAME);
 		return $this->db->get()->num_rows();

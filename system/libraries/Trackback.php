@@ -66,7 +66,7 @@ class CI_Trackback {
 		'url' => '',
 		'title' => '',
 		'excerpt' => '',
-		'blog_name' => '',
+		'book_name' => '',
 		'charset' => ''
 	);
 
@@ -123,7 +123,7 @@ class CI_Trackback {
 		}
 
 		// Pre-process the Trackback Data
-		foreach (array('url', 'title', 'excerpt', 'blog_name', 'ping_url') as $item)
+		foreach (array('url', 'title', 'excerpt', 'book_name', 'ping_url') as $item)
 		{
 			if ( ! isset($tb_data[$item]))
 			{
@@ -148,7 +148,7 @@ class CI_Trackback {
 			}
 
 			// Convert High ASCII Characters
-			if ($this->convert_ascii === TRUE && in_array($item, array('excerpt', 'title', 'blog_name'), TRUE))
+			if ($this->convert_ascii === TRUE && in_array($item, array('excerpt', 'title', 'book_name'), TRUE))
 			{
 				$$item = $this->convert_ascii($$item);
 			}
@@ -157,7 +157,7 @@ class CI_Trackback {
 		// Build the Trackback data string
 		$charset = isset($tb_data['charset']) ? $tb_data['charset'] : $this->charset;
 
-		$data = 'url='.rawurlencode($url).'&title='.rawurlencode($title).'&blog_name='.rawurlencode($blog_name)
+		$data = 'url='.rawurlencode($url).'&title='.rawurlencode($title).'&book_name='.rawurlencode($book_name)
 			.'&excerpt='.rawurlencode($excerpt).'&charset='.rawurlencode($charset);
 
 		// Send Trackback(s)
@@ -190,7 +190,7 @@ class CI_Trackback {
 	 */
 	public function receive()
 	{
-		foreach (array('url', 'title', 'blog_name', 'excerpt') as $val)
+		foreach (array('url', 'title', 'book_name', 'excerpt') as $val)
 		{
 			if (empty($_POST[$val]))
 			{

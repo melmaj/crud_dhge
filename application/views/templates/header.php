@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<title>Blog</title>
+	<title>Book</title>
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -31,7 +31,7 @@
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item dropdown">
 				<a class="dropdown-item"
-				   href="<?php echo site_url('/blog/home') ?>">Home</a>
+				   href="<?php echo site_url('/book/home') ?>">Home</a>
 				<?php if (!isset($a_current_user[User_model::S_TABLE_FIELD_FIRSTNAME]) && !isset($a_current_user[User_model::S_TABLE_FIELD_NAME]))
 				{ ?><a class="dropdown-item"
 				   href="<?php echo site_url('/user/login') ?>">Anmelden</a><?php }
@@ -42,7 +42,7 @@
 				?>
 				<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_ADMIN])==1)
 				{ ?><a class="dropdown-item"
-					   href="<?php echo site_url('/admin/dashboard_blog') ?>">Admin-Dashboard</a><?php }
+					   href="<?php echo site_url('/admin/dashboard_book') ?>">Admin-Dashboard</a><?php }
 				?>
 				<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_FIRSTNAME]) && isset($a_current_user[User_model::S_TABLE_FIELD_NAME]))
 				{ ?>

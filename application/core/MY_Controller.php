@@ -5,7 +5,7 @@
  * @property CI_Loader $load
  * @property CI_Input $input
  * @property User_model $user_model
- * @property Blog_model $blog_model
+ * @property Book_model $book_model
  * @property CI_URI $uri
  * @property CI_Session $session
  * @property CI_User_agent $agent
@@ -67,6 +67,6 @@ class MY_Controller extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('blog/home');
+		redirect('book/home');
 	}
 }
