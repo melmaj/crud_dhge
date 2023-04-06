@@ -13,7 +13,6 @@ class Blog extends MY_Controller
         $this->setViewData('a_current_user', $this->user_model->get_row_array_by_id($this->session->userdata('i_user_id'), User_model::S_TABLE_NAME));
 	}
 	/**
-	 * @author RHS
 	 */
 	public function home()
 	{
@@ -33,7 +32,6 @@ class Blog extends MY_Controller
 	}
 
 	/**
-	 * @author RHS
 	 */
 	public function add_comment()
 	{

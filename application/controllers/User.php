@@ -5,7 +5,6 @@ class User extends MY_Controller
 {
 
 	/**
-	 * @author RHS
 	 */
 	public function login()
 	{
@@ -13,7 +12,6 @@ class User extends MY_Controller
 	}
 
 	/**
-	 * @author RHS
 	 */
 	public function register()
 	{

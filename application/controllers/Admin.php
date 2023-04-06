@@ -13,7 +13,6 @@ class Admin extends MY_Controller
 		{redirect('admin/login?error_code=1');}
 	}
 	/**
-	 * @author RHS
 	 */
 	public function login()
 	{

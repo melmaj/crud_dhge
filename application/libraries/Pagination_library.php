@@ -30,7 +30,6 @@ class Pagination_library
 	 * @param $i_num_total
 	 * @param int $i_now_rows_listing
 	 * @return string
-	 * @author RHS
 	 */
 	public function generate($s_site_url, $i_num_total, $i_now_rows_listing = 10): string
 	{
