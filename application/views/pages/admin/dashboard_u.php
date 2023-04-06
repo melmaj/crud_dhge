@@ -12,12 +12,12 @@ $this->load->view('pages/partials/side_bar_admin')
 	<table class="table table-striped">
 		<thead>
 		<tr>
-			<th>#id</th>
+			<th>#ID</th>
 			<th>Vorname</th>
 			<th>Nachname</th>
 			<th>E-Mail-Adresse</th>
 			<th>Admin-Status</th>
-			<th>Action</th>
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -31,13 +31,13 @@ $this->load->view('pages/partials/side_bar_admin')
 				<td><?php echo $a_user[User_model::S_TABLE_FIELD_EMAIL] ?></td>
 				<td><?php echo $a_user[User_model::S_TABLE_FIELD_ADMIN] ?></td>
 				<td>
-					<a href="#" class="btn btn-info btn-sm update-record"  data-toggle="modal" data-target="#UpdateModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">Edit</a>
+					<a href="#" class="btn btn-info btn-sm update-record"  data-toggle="modal" data-target="#UpdateModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">Bearbeiten</a>
 					<form action="<?php echo site_url('admin/edit_user');?>" method="post">
 						<div class="modal fade" id="UpdateModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+										<h5 class="modal-title" id="exampleModalLabel">Nutzer bearbeiten</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
@@ -72,27 +72,27 @@ $this->load->view('pages/partials/side_bar_admin')
 									</div>
 									<div class="modal-footer">
 										<input type="hidden" name="edit_id" value="<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>"
-										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-										<button type="submit" class="btn btn-success btn-sm">Update</button>
+										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Schließen</button>
+										<button type="submit" class="btn btn-success btn-sm">Updaten</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</form>
-					<a href="#" class="btn btn-danger btn-sm delete-record"  data-toggle="modal" data-target="#DeleteModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">Delete</a>
+					<a href="#" class="btn btn-danger btn-sm delete-record"  data-toggle="modal" data-target="#DeleteModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>">Löschen</a>
 					<form action="<?php echo site_url('admin/delete_user');?>" method="post">
 						<div class="modal fade" id="DeleteModal-<?php echo $a_user[User_model::S_TABLE_FIELD_ID]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+										<h5 class="modal-title" id="exampleModalLabel">Nutzer löschen</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body">
 
-										<h4>Are you sure to delete this User?</h4>
+										<h4>Bist du sicher, dass du den Nutzer löschen möchtest?</h4>
 
 									</div>
 									<div class="modal-footer">

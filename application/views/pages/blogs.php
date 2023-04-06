@@ -11,8 +11,8 @@
 	<div class="col-md-12">
 		<article class="blog-post">
 			<h2 class="blog-post-title"><?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_TITLE_BLOCK]; ?></h2>
-			<p class="blog-post-meta">created at <?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_DATE_BLOCK]; ?>
-				by <?php echo $a_current_blog[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_current_blog[User_model::S_TABLE_FIELD_NAME]; ?></p>
+			<p class="blog-post-meta">erstellt am <?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_DATE_BLOCK]; ?>
+				von <?php echo $a_current_blog[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_current_blog[User_model::S_TABLE_FIELD_NAME]; ?></p>
 
 			<p><?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK]; ?></p>
 			<hr>
@@ -26,10 +26,10 @@
 				<input type="hidden" id="bookName" value="<?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_TITLE_BLOCK]; ?>">
 
 			</div>
-                <div class="buttonbox"><button class="btn btn-lg btn-primary" id="submit-button" type="submit">Einstechen</button></div>
+                <div class="buttonbox"><button class="btn btn-lg btn-primary" id="submit-button" type="submit">Beginne lesen</button></div>
 		</form>
 		<form id="getter">
-            <div> <button class="btn btn-lg btn-primary" id="get-button" type="submit">Ausstechen</button></div>
+            <div> <button class="btn btn-lg btn-primary" id="get-button" type="submit">Beende lesen</button></div>
 		</form>
 		<div>
             <br>
@@ -41,7 +41,7 @@
 		?>
 
 
-		<h4><label>Kommentare</label></h4>
+		<h4><label>Rezensionen</label></h4>
 		<p><?php //print_r($a_all_comments);
 			foreach ($a_all_comments as $comment_nr => $comment_value) {
 				echo "Kommentar ";
@@ -63,7 +63,7 @@
 						<label>Titel<input name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_COMMENT ?>" type="text" class="form-control" required></label>
 					</div>
 					<label><textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"></textarea></label>
-					<div><button name="send" type="submit" class="btn btn-mat btn-info">Kommentar hinzufügen</button></div>
+					<div><button name="send" type="submit" class="btn btn-mat btn-info">Rezension hinzufügen</button></div>
 				</div>
 			</form>
 		<?php }

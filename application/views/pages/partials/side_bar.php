@@ -16,7 +16,7 @@
 		if ($i_num_blog_entries > 10) { ?>
 				<a class="nav-link dropdown-toggle p-2" href="#"
 				   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					More
+					Mehr
 				</a>
 		<?php } ?>
 	</nav>

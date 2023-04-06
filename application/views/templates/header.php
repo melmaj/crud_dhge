@@ -17,7 +17,7 @@
             width: 20%;
         }
         </style>
-	<title>Blog</title>
+	<title>Buch Blog</title>
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -37,7 +37,7 @@
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item dropdown">
 				<a class="dropdown-item"
-				   href="<?php echo site_url('/blog/home') ?>">Home</a>
+				   href="<?php echo site_url('/blog/home') ?>">Homepage</a>
 				<?php if (!isset($a_current_user[User_model::S_TABLE_FIELD_FIRSTNAME]) && !isset($a_current_user[User_model::S_TABLE_FIELD_NAME]))
 				{ ?><a class="dropdown-item"
 				   href="<?php echo site_url('/user/login') ?>">Anmelden</a><?php }
@@ -53,7 +53,7 @@
 				<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_FIRSTNAME]) && isset($a_current_user[User_model::S_TABLE_FIELD_NAME]))
 				{ ?>
 					<a class="dropdown-item"
-					   href="<?php echo site_url('/user/logout') ?>">Logout</a>
+					   href="<?php echo site_url('/user/logout') ?>">Abmelden</a>
 				<?php }
 				?>
 			</li>

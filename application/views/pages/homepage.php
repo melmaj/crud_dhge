@@ -14,7 +14,7 @@
 
 			</div>
 			<div class="col-4 text-center">
-				<h1>Der Buch Block</h1>
+				<h1>Der Buch Blog</h1>
 			</div>
 			<div class="col-4 d-flex justify-content-end align-items-center">
 
@@ -34,12 +34,12 @@
 
 			<article class="blog-post">
 				<h2 class="blog-post-title"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?></h2>
-				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK]?> by <a href="#"><?php echo $a_blog_entry[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_blog_entry[User_model::S_TABLE_FIELD_NAME]; ?></a></p>
+				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK]?> von <a href="#"><?php echo $a_blog_entry[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_blog_entry[User_model::S_TABLE_FIELD_NAME]; ?></a></p>
 
 				<p><?php echo substr($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK], 0, 255) ?></p>
 				<hr>
 				<?php if (strlen($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK])) { ?>
-					<p><a href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]) ?>">Continue reading...</a></p>
+					<p><a href="<?php echo site_url('/blog/page/'. $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]) ?>">Weiterlesen...</a></p>
 						<?php	} ?>
 			</article>
 			<?php } ?>

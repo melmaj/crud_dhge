@@ -9,16 +9,16 @@ $this->load->view('pages/partials/side_bar_admin')
 ?>
 <body>
 <div class="container">
-	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Add New Blog</button><br/>
+	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Erstelle neues Buch</button><br/>
 	<table class="table table-striped">
 		<thead>
 		<tr>
-			<th>#id</th>
-			<th>Blog Title</th>
-			<th>Blog Content</th>
-			<th>Created At</th>
-			<th>Created By</th>
-			<th>Action</th>
+			<th>#ID</th>
+			<th>Buch Titel</th>
+			<th>Buch Inhalt</th>
+			<th>Erstellt am</th>
+			<th>Erstellt von</th>
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -34,27 +34,27 @@ $this->load->view('pages/partials/side_bar_admin')
 				<td><?php echo $a_blog_entry[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' .  $a_blog_entry[User_model::S_TABLE_FIELD_NAME]?></td>
 
 				<td>
-					<a href="#" class="btn btn-info btn-sm update-record" data-toggle="modal" data-target="#UpdateModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" >Edit</a>
+					<a href="#" class="btn btn-info btn-sm update-record" data-toggle="modal" data-target="#UpdateModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" >Bearbeiten</a>
 					<form action="<?php echo site_url('admin/edit_blog');?>" method="post">
 						<div class="modal fade" id="UpdateModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Update Blog</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<h5 class="modal-title" id="exampleModalLabel">Buch bearbeiten</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body">
 
 										<div class="form-group row">
-											<label class="col-sm-2 col-form-label">Title</label>
+											<label class="col-sm-2 col-form-label">Titel</label>
 											<div class="col-sm-10">
 												<input type="text" name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_BLOCK ?>" class="form-control" value="<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-sm-2 col-form-label">Content</label>
+											<label class="col-sm-2 col-form-label">Inhalt</label>
 											<div class="col-sm-10">
 												<textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_BLOCK ?>"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK] ?></textarea>
 											</div>
@@ -63,33 +63,33 @@ $this->load->view('pages/partials/side_bar_admin')
 									</div>
 									<div class="modal-footer">
 										<input type="hidden" name="edit_id" value="<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
-										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-										<button type="submit" class="btn btn-success btn-sm">Update</button>
+										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Schließen</button>
+										<button type="submit" class="btn btn-success btn-sm">Updaten</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</form>
-					<a href="#" class="btn btn-danger btn-sm delete-record" data-toggle="modal" data-target="#DeleteModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" >Delete</a>
+					<a href="#" class="btn btn-danger btn-sm delete-record" data-toggle="modal" data-target="#DeleteModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" >Löschen</a>
 					<form action="<?php echo site_url('admin/delete_blog_entry');?>" method="post">
 						<div class="modal fade" id="DeleteModal-<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Delete Blog</h5>
+										<h5 class="modal-title" id="exampleModalLabel">Buch löschen</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body">
 
-										<h4>Are you sure to delete this blog?</h4>
+										<h4>Bist du sicher, dass du das Buch löschen möchtest?</h4>
 
 									</div>
 									<div class="modal-footer">
 										<input type="hidden" name="delete_id" value="<?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
-										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
-										<button type="submit" class="btn btn-success btn-sm">Yes</button>
+										<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Nein</button>
+										<button type="submit" class="btn btn-success btn-sm">Ja</button>
 									</div>
 								</div>
 							</div>
@@ -114,7 +114,7 @@ $this->load->view('pages/partials/side_bar_admin')
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Add New Blog</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Erstelle neues Buch</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -122,13 +122,13 @@ $this->load->view('pages/partials/side_bar_admin')
 				<div class="modal-body">
 
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Title</label>
+						<label class="col-sm-2 col-form-label">Titel</label>
 						<div class="col-sm-10">
-							<input type="text" name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_BLOCK ?>" class="form-control" placeholder="Package Name" required>
+							<input type="text" name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_BLOCK ?>" class="form-control" placeholder="Buchname" required>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Content</label>
+						<label class="col-sm-2 col-form-label">Inhalt</label>
 						<div class="col-sm-10">
 							<textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_BLOCK ?>"></textarea>
 						</div>
@@ -136,8 +136,8 @@ $this->load->view('pages/partials/side_bar_admin')
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-success btn-sm">Save</button>
+					<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Schließen</button>
+					<button type="submit" class="btn btn-success btn-sm">Speichern</button>
 				</div>
 			</div>
 		</div>
