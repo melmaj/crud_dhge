@@ -19,23 +19,29 @@
 
 		</article>
 		<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_ID])) { ?>
-		<form id="time-tracking-form">
+
+            <form id="time-tracking-form">
 			<div >
 				<input type="hidden" id="userId" value="<?php echo $a_current_user[User_model::S_TABLE_FIELD_ID]; ?>">
-				<input type="hidden" id="bookId" value="<?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_ID_BLOCK]; ?>">
+				<input type="hidden" id="bookName" value="<?php echo $a_current_blog[Blog_model::S_TABLE_FIELD_TITLE_BLOCK]; ?>">
 
 			</div>
-			<button class="btn btn-lg btn-primary" id="submit-button" type="submit">Einstechen</button>
+                <div class="buttonbox"><button class="btn btn-lg btn-primary" id="submit-button" type="submit">Einstechen</button></div>
 		</form>
 		<form id="getter">
-			<button class="btn btn-lg btn-primary" id="get-button" type="submit">Ausstechen</button>
+            <div> <button class="btn btn-lg btn-primary" id="get-button" type="submit">Ausstechen</button></div>
 		</form>
-		<p id="result" class="m-2 col-md-4 mx-auto"></p>
+		<div>
+            <br>
+            <p id="result" ></p>
+        </div>
+            <br>
+            <hr>
 		<?php }
 		?>
 
 
-		<label>Kommentare</label>
+		<h4><label>Kommentare</label></h4>
 		<p><?php //print_r($a_all_comments);
 			foreach ($a_all_comments as $comment_nr => $comment_value) {
 				echo "Kommentar ";
@@ -52,12 +58,12 @@
 		<?php if (isset($a_current_user[User_model::S_TABLE_FIELD_ID])) { ?>
 			<form method="post" action="<?php echo('/blog/add_comment') ?>">
 				<input type="hidden" name="blog_entry_id" value="<?php echo $a_current_blog['id'] ?>">
-				<div class="col-md-12">
+				<div class="col-md-16">
 					<div>
 						<label>Titel<input name="<?php echo Blog_model::S_TABLE_FIELD_TITLE_COMMENT ?>" type="text" class="form-control" required></label>
 					</div>
 					<label><textarea class="form-control" name="<?php echo Blog_model::S_TABLE_FIELD_CONTENT_COMMENT ?>"></textarea></label>
-					<button name="send" type="submit" class="btn btn-mat btn-info">Kommentar hinzufügen</button>
+					<div><button name="send" type="submit" class="btn btn-mat btn-info">Kommentar hinzufügen</button></div>
 				</div>
 			</form>
 		<?php }
@@ -68,7 +74,7 @@
 <button type="button"><a href="<?php echo site_url('/blog/home') ?>">Zurück</a></button>
 <script>const form = document.querySelector('form');
 	const inputValueUser = document.getElementById('userId');
-	const inputValueBook = document.getElementById('bookId');
+	const inputValueBook = document.getElementById('bookName');
 	const resultText = document.getElementById('result');
 	const getter = document.getElementById('getter');
 
@@ -83,7 +89,7 @@
 		fetch(apiUrl, {
 
 			method: 'POST',
-			body: JSON.stringify({'userId': UserToSend, 'bookId':BookToSend, 'buttonType': 'submit' })
+			body: JSON.stringify({'userId': UserToSend, 'bookName':BookToSend, 'buttonType': 'submit' })
 		})
 			.then(response => response.json())
 
@@ -110,7 +116,7 @@
 		fetch(apiUrl, {
 
 			method: 'POST',
-			body: JSON.stringify({'userId': UserToSend, 'bookId':BookToSend, 'buttonType': 'get' })
+			body: JSON.stringify({'userId': UserToSend, 'bookName':BookToSend, 'buttonType': 'get' })
 		})
 			.then(response => response.json())
 

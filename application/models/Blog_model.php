@@ -92,10 +92,19 @@ class Blog_model extends MY_Model
 	 */
 	function get_entries_for_home_page()
 	{
-		$this->db->select();
+		$this->db->select(
+            array(
+            'blog_entry.id',
+            'title',
+            'content',
+            'creation_date',
+            'User.Name',
+            'User.Firstname'
+        ));
 		$this->db->from(self::TABLE_BLOG_ENTRY);
 		$this->db->limit(3);
 		$this->db->order_by(self::S_TABLE_FIELD_DATE_BLOCK, 'DESC');
+        $this->db->join('User', 'User.id = blog_entry.created_by');
 		return $this->db->get()->result_array();
 	}
 

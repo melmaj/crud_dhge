@@ -34,7 +34,7 @@
 
 			<article class="blog-post">
 				<h2 class="blog-post-title"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_TITLE_BLOCK] ?></h2>
-				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK]?> by <a href="#">Mark</a></p>
+				<p class="blog-post-meta"><?php echo $a_blog_entry[Blog_model::S_TABLE_FIELD_DATE_BLOCK]?> by <a href="#"><?php echo $a_blog_entry[User_model::S_TABLE_FIELD_FIRSTNAME] . ' ' . $a_blog_entry[User_model::S_TABLE_FIELD_NAME]; ?></a></p>
 
 				<p><?php echo substr($a_blog_entry[Blog_model::S_TABLE_FIELD_CONTENT_BLOCK], 0, 255) ?></p>
 				<hr>
